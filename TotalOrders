@@ -1,0 +1,332 @@
+package mod;
+
+import java.util.ArrayList;
+import cont.JOP;
+
+public class TotalOrders 
+{
+	private ArrayList<VideoGames> orders;
+	private VideoGames _v;
+	private boolean isShopping = true;
+	
+	public TotalOrders()
+	{
+		orders = new ArrayList<VideoGames>();
+	}
+	
+	
+	
+	public void addOrder(VideoGames game)
+	{
+		orders.add(game);
+	}
+	
+	public void getTotalGames()
+	{
+		int sum = 0;
+		String blank = "";
+		for(int i = 0; i < orders.size(); i++)
+		{
+			sum += orders.get(i).getQty();
+		}
+		blank += sum;
+		JOP.msg("Pending orders: " + blank);
+	}
+	
+	public void totalPrice()
+	{
+		double sum = 0;
+		String blank = "The Game Corner Profit:\n$";
+		for(int i = 0; i < orders.size(); i++)
+		{
+			sum += (orders.get(i).getPrice() * orders.get(i).getQty());
+		}
+		blank += sum;
+		JOP.msg(blank);
+	}
+	
+	public void productCount()
+	{
+		
+		String blank = "Orders to fulfill:\n";
+		
+		for(int i = 0; i < orders.size(); i++)
+		{
+				blank += orders.get(i).toStringThree(orders.get(i).getQty());
+		}
+		JOP.msg(blank);
+	}
+	
+	public void productPrice()
+	{
+		double sum = 0;
+		String blank = "Individual orders' cost:\n";
+		for(int i = 0; i < orders.size(); i++)
+		{
+				sum += orders.get(i).getPrice() * orders.get(i).getQty();
+				blank += orders.get(i).toStringOne(sum);
+				sum = 0;
+		}
+		JOP.msg(blank);
+	}
+	
+	public void buyerPrice(String s)
+	{
+		double sum = 0;
+		String blank = "";
+		for(int i = 0; i < orders.size(); i++)
+		{
+			if(orders.get(i).getBuyer().equalsIgnoreCase(s))
+			{
+				sum += (orders.get(i).getPrice() * orders.get(i).getQty());
+			}
+			
+		}
+		blank += sum;
+		JOP.msg(blank);
+	}
+	
+	public void currentOrders()
+	{
+		String blank = "Current Orders:\n";
+		for(int i = 0; i < orders.size(); i++)
+		{
+			blank += orders.get(i).toStringTwo();
+		}
+		JOP.msg(blank + "\n");
+	}
+	
+	public void ordersByBuyer(ArrayList<VideoGames> lst, String s)
+	{
+		String blank = "";
+		
+		for(int i = 0; i < lst.size(); i++)
+		{
+			if(lst.get(i).getBuyer().equals(s))
+			{
+				blank += lst.get(i).toStringTwo();
+			}
+		}
+		JOP.msg(blank);
+	}
+	
+	public void productRemove(String s)
+	{
+		for(int i = 0; i < orders.size(); i++)
+		{
+			if(orders.get(i).getName().equalsIgnoreCase(s))
+			{
+				orders.remove(i);
+				i--;
+			}
+		}
+	}
+	
+	public void buyerRemove(String s)
+	{
+		for(int i = 0; i < orders.size(); i++)
+		{
+			if(orders.get(i).getBuyer().equalsIgnoreCase(s))
+			{
+				orders.remove(i);
+				i--;
+			}
+		}
+	}
+	
+	public void ratingRemove(String s)
+	{
+		for(int i = 0; i < orders.size(); i++)
+		{
+			if(orders.get(i).getRating().equalsIgnoreCase(s))
+			{
+				orders.remove(i);
+				i--;
+			}
+		}
+	}
+	
+	public void compoundRemove(String s, String t)
+	{
+		for(int i = 0; i < orders.size(); i++)
+		{
+			if(orders.get(i).getName().equalsIgnoreCase(s) && orders.get(i).getBuyer().equalsIgnoreCase(t))
+			{
+				orders.remove(i);
+				i--;
+			}
+		}
+	}
+	
+	public void navigation()
+	{
+		while(isShopping)
+		{
+			String orderInput = JOP.in("Would you like to order a game (1-20)? Input a commmand?");
+			
+			if(orderInput.equals("1"))
+			{
+				_v = new VideoGames("Star Wars Jedi: Fallen Order", "T", 59.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("2"))
+			{
+				_v = new VideoGames("Dragon Ball Z Kakarot", "T", 59.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("3"))
+			{
+				_v = new VideoGames("The Elder Scrolls V: Skyrim", "M", 39.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("4"))
+			{
+				_v = new VideoGames("Red Dead Redemption 2", "M", 59.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			
+			if(orderInput.equals("5"))
+			{
+				_v = new VideoGames("Marvel's Spider-Man", "T", 39.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			
+			if(orderInput.equals("6"))
+			{
+				_v = new VideoGames("Marvel's Spider-Man: Miles Morales", "T", 59.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("7"))
+			{
+				_v = new VideoGames("Destiny 2", "T", 0.00, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("8"))
+			{
+				_v = new VideoGames("The Legend of Zelda: Breath of the Wild", "T", 44.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("9"))
+			{
+				_v = new VideoGames("Final Fantasy XV", "T", 34.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("10"))
+			{
+				_v = new VideoGames("For Honor", "M", 29.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("11"))
+			{
+				_v = new VideoGames("Minecraft", "E", 26.95, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("12"))
+			{
+				_v = new VideoGames("Dragon Ball Xenoverse 2", "T", 49.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("13"))
+			{
+				_v = new VideoGames("The Crew", "T", 29.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("14"))
+			{
+				_v = new VideoGames("Skate 3", "T", 19.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("15"))
+			{
+				_v = new VideoGames("No Man's Sky", "T", 59.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("16"))
+			{
+				_v = new VideoGames("Stardew Valley", "E", 14.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("17"))
+			{
+				_v = new VideoGames("Kerbal Space Program", "E", 39.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("18"))
+			{
+				_v = new VideoGames("Mario Kart 8 Deluxe", "E", 59.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("19"))
+			{
+				_v = new VideoGames("Dishonored", "M", 19.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			if(orderInput.equals("20"))
+			{
+				_v = new VideoGames("Terraria", "T", 9.99, JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			
+			if(orderInput.equalsIgnoreCase("Current Orders"))
+			{
+				currentOrders();
+			}
+			
+			if(orderInput.equalsIgnoreCase("Buyer Search"))
+			{
+				ordersByBuyer(orders, JOP.in("Please specify a buyer to filter by: "));
+			}
+			
+			if(orderInput.equalsIgnoreCase("Product Remove"))
+			{
+				productRemove(JOP.in("Please specify a game by name: "));
+			}
+			
+			if(orderInput.equalsIgnoreCase("Buyer Remove"))
+			{
+				buyerRemove(JOP.in("Please specify a buyer by name: "));
+			}
+			
+			if(orderInput.equalsIgnoreCase("Compound Remove"))
+			{
+				compoundRemove(JOP.in("Please specify a game by name: "), JOP.in("Also, specify a buyer by name: "));
+			}
+			
+			if(orderInput.equalsIgnoreCase("Rating Remove"))
+			{
+				ratingRemove(JOP.in("Please specify a rating: "));
+			}
+			
+			if(orderInput.equalsIgnoreCase("Add Game"))
+			{
+				_v = new VideoGames(JOP.in("Please name a game: "), JOP.in("What is it rated: "), Double.parseDouble(JOP.in("What is the price? ")), JOP.in("Please input a buyer name:"), Integer.parseInt(JOP.in("How many copies?(1-99)")));
+				addOrder(_v);
+			}
+			
+			if(orderInput.equalsIgnoreCase("Buyer Price"))
+			{
+				buyerPrice(JOP.in("Please specify a buyer by name: "));
+			}
+			
+			if(orderInput.equalsIgnoreCase("Check Total"))
+			{
+				getTotalGames();
+			}
+			
+			if(orderInput.equalsIgnoreCase("Check Price"))
+			{
+				totalPrice();
+			}
+			
+			if(orderInput.equalsIgnoreCase("Done Shopping"))
+			{
+				productCount();
+				productPrice();
+				totalPrice();
+				
+				isShopping = false;
+			}
+			currentOrders();
+		}
+	}
+}
