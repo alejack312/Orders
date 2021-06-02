@@ -1,0 +1,60 @@
+package mod;
+
+public class VideoGames 
+{
+	private String _name;
+	private String _rating;
+	private double _price;
+	private String _buyer;
+	private int _qty;
+	
+	public VideoGames(String name, String rating, double price, String buyer, int qty)
+	{
+		_name = name;
+		_rating = rating;
+		_price = price;
+		_buyer = buyer;
+		_qty = qty;
+	}
+	
+	public String getName()
+	{
+		return _name;
+	}
+	
+	public String getRating()
+	{
+		return _rating;
+	}
+	
+	public double getPrice()
+	{
+		return _price;
+	}
+	
+	public String getBuyer()
+	{
+		return _buyer;
+	}
+	
+	public int getQty()
+	{
+		return _qty;
+	}
+	
+	public String toStringOne(double num)
+	{
+		return _name + " (" + _qty + ") " + ": " + num + "\n";
+	}
+	
+	public String toStringThree(int num)
+	{
+		return _name + " (" + num + ")" + "\n";
+	}
+	
+	public String toStringTwo()
+	{
+		return _name + " (" + _qty + ") " + " / " + "$" + _price + " / " + _rating + " / " + _buyer + "\n";
+	}
+		
+}
