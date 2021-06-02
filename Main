@@ -1,0 +1,14 @@
+package mod;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Help _h = new Help();
+		_h.guide();
+		TotalOrders _t = new TotalOrders();
+		_t.navigation();
+	}
+
+}
