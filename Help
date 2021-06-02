@@ -1,0 +1,11 @@
+package mod;
+
+import cont.JOP;
+
+public class Help 
+{
+	public void guide()
+	{
+		JOP.msg("Welcome to The Game Corner. Thanks for shopping with us! \n\nHow to Navigate: \nSelect a number (1-20) to order a game from our stock. \nTyping in current orders will display the current orders. \nTyping in Buyer Search will allow you to search by buyer. \nTyping in Product Remove will allow you to remove orders from the list by product name. \nTyping in Buyer Remove will allow you to remove orders from the list by buyer name. \nTyping in Compound Remove will allow you to remove orders from the list by product and buyer name. \nTyping in Add Game will allow you to add a game to the orders. \nTyping in Check Total will tell you the number of games the order list holds to fulfill all the orders. \nTyping in Check Price will allow you to check the current price of your cart. \nTyping in Done Shopping will end your shopping session. \n\nStock: \n1) Star Wars Jedi: Fallen Order (T) \n2) Dragon Ball Z Kakarot (T) \n3) The Elder Scrolls V: Skyrim (M) \n4) Red Dead Redemption 2 (M) \n5) Marvel's Spider-Man (T) \n6) Marvel's Spider-Man: Miles Morales (T) \n7) Destiny 2 (T) \n8) The Legend of Zelda: Breath of the Wild (E) \n9) Final Fantasy XV (T) \n10) For Honor (M) \n11) Minecraft (E) \n12) Dragon Ball Xenoverse 2 (T) \n13) The Crew (T) \n14) Skate 3 (T) \n15) No Man's Sky (T) \n16) Stardew Valley (E) \n17) Kerbal Space Program (E) \n18) Forza Motorsport 7 (E) \n19) Dishonored (M) \n20) Terraria (T)");
+	}
+}
